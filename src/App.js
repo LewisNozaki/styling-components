@@ -8,7 +8,7 @@ const App = () => {
     { text: 'Do all exercises!', id: 'g1' },
     { text: 'Finish the course!', id: 'g2' }
   ]);
-
+  
   const addGoalHandler = enteredText => {
     setCourseGoals(prevGoals => {
       const updatedGoals = [...prevGoals];
