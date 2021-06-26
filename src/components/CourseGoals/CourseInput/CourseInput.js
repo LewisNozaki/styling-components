@@ -25,7 +25,7 @@ const CourseInput = ({ onAddGoal }) => {
     onAddGoal(enteredValue);
     setEnteredValue("");
   };
-
+  
   let invalidClass = !isValid ? "invalid" : "";
   
   return (
