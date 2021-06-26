@@ -6,7 +6,13 @@ const CourseInput = ({ onAddGoal }) => {
   const [ enteredValue, setEnteredValue ] = useState("");
   const [ isValid, setIsValid ] = useState(true);
 
-  const goalInputChangeHandler = e => setEnteredValue(e.target.value)
+  const goalInputChangeHandler = e => {
+    if (e.target.value.trim().length > 0) {
+      setIsValid(true);
+    }
+
+    setEnteredValue(e.target.value)
+  }
   
   const formSubmitHandler = e => {
     e.preventDefault();
@@ -20,20 +26,16 @@ const CourseInput = ({ onAddGoal }) => {
     setEnteredValue("");
   };
 
-  let invalidStyling = {
-    borderColor: !isValid ? "red" : "black",
-    background: !isValid ? "salmon" : "transparent"
-  }
+  let invalidClass = !isValid ? "invalid" : "";
   
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
+      <div className={`form-control ${invalidClass}`}>
         <label>Course Goal</label>
         <input 
           type="text"
           value={enteredValue}
           onChange={goalInputChangeHandler} 
-          style={invalidStyling}
         />
       </div>
       <Button 
