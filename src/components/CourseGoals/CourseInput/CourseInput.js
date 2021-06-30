@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
 import Button from '../../UI/Button/Button';
-import styled from 'styled-components';
-import './CourseInput.css';
+import styles from './CourseInput.module.css';
 
-const FormInput = styled.div`
-  margin: 0.5rem 0;
+// const FormInput = styled.div`
+//   margin: 0.5rem 0;
 
-  & label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
-    color: #333;
-  }
+//   & label {
+//     font-weight: bold;
+//     display: block;
+//     margin-bottom: 0.5rem;
+//     font-size: 2rem;
+//     color: #333;
+//   }
 
-  & input {
-    display: block;
-    width: 100%;
-    border: 1px solid #ccc;
-    font: inherit;
-    line-height: 1.5rem;
-    padding: 0.25rem 0.5rem;
-    margin: 20px 0;
-  }
+//   & input {
+//     display: block;
+//     width: 100%;
+//     border: 1px solid #ccc;
+//     font: inherit;
+//     line-height: 1.5rem;
+//     padding: 0.25rem 0.5rem;
+//     margin: 20px 0;
+//   }
 
-  & input:focus {
-    outline: none;
-    background: #fad0ec;
-    border-color: #8b005d;
-  }
+//   & input:focus {
+//     outline: none;
+//     background: #fad0ec;
+//     border-color: #8b005d;
+//   }
 
-  &.invalid input {
-    border-color: red;
-    background: #ffd7d7;
-  }
-`;
+//   &.invalid input {
+//     border-color: red;
+//     background: #ffd7d7;
+//   }
+// `;
 
 const CourseInput = ({ onAddGoal }) => {
   const [ enteredValue, setEnteredValue ] = useState("");
@@ -50,7 +49,7 @@ const CourseInput = ({ onAddGoal }) => {
   
   const formSubmitHandler = e => {
     e.preventDefault();
-    
+
     if (enteredValue.trim().length === 0) {
       setIsValid(false);
       return
@@ -61,18 +60,18 @@ const CourseInput = ({ onAddGoal }) => {
     setEnteredValue("");
   };
   
-  let invalidClass = !isValid && "invalid";
+  // let invalidClass = !isValid && "invalid";
   
   return (
     <form onSubmit={formSubmitHandler}>
-      <FormInput className={invalidClass}>
+      <div className={`${styles.['form-control']} ${!isValid && styles.invalid}`}>
         <label>Course Goal</label>
         <input 
           type="text"
           value={enteredValue}
           onChange={goalInputChangeHandler} 
         />
-      </FormInput>
+      </div>
       <Button 
         type="submit" 
         // disabled={!enteredValue}
