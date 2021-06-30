@@ -4,7 +4,36 @@ import styled from 'styled-components';
 import './CourseInput.css';
 
 const FormInput = styled.div`
-  
+  margin: 0.5rem 0;
+
+  & label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #333;
+  }
+
+  & input {
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    font: inherit;
+    line-height: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    margin: 20px 0;
+  }
+
+  & input:focus {
+    outline: none;
+    background: #fad0ec;
+    border-color: #8b005d;
+  }
+
+  &.invalid input {
+    border-color: red;
+    background: #ffd7d7;
+  }
 `;
 
 const CourseInput = ({ onAddGoal }) => {
@@ -35,14 +64,14 @@ const CourseInput = ({ onAddGoal }) => {
   
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`form-control ${invalidClass}`}>
+      <FormInput className={`form-control ${invalidClass}`}>
         <label>Course Goal</label>
         <input 
           type="text"
           value={enteredValue}
           onChange={goalInputChangeHandler} 
         />
-      </div>
+      </FormInput>
       <Button 
         type="submit" 
         // disabled={!enteredValue}
