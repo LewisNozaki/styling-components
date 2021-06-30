@@ -54,7 +54,7 @@ const CourseInput = ({ onAddGoal }) => {
       setIsValid(false);
       return
     }
-
+    
     // Resets the input to blank after submitting.
     onAddGoal(enteredValue);
     setEnteredValue("");
