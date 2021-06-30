@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import Button from '../../UI/Button/Button';
+import styled from 'styled-components';
 import './CourseInput.css';
+
+const FormInput = styled.div`
+  
+`;
 
 const CourseInput = ({ onAddGoal }) => {
   const [ enteredValue, setEnteredValue ] = useState("");
