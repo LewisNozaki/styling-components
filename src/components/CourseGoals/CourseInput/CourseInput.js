@@ -50,21 +50,22 @@ const CourseInput = ({ onAddGoal }) => {
   
   const formSubmitHandler = e => {
     e.preventDefault();
-
+    
     if (enteredValue.trim().length === 0) {
       setIsValid(false);
       return
     }
 
+    // Resets the input to blank after submitting.
     onAddGoal(enteredValue);
     setEnteredValue("");
   };
   
-  let invalidClass = !isValid ? "invalid" : "";
+  let invalidClass = !isValid && "invalid";
   
   return (
     <form onSubmit={formSubmitHandler}>
-      <FormInput className={`form-control ${invalidClass}`}>
+      <FormInput className={invalidClass}>
         <label>Course Goal</label>
         <input 
           type="text"
