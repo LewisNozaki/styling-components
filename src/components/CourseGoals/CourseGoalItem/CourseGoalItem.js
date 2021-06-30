@@ -10,7 +10,7 @@ const CourseGoalItem = ({ id, onDelete, children }) => {
   };
   
   return (
-    <li className={styles.["goal-item"]} onClick={deleteHandler}>
+    <li className={styles["goal-item"]} onClick={deleteHandler}>
       {children}
     </li>
   );
